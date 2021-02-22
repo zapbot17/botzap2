@@ -41,7 +41,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
             + 'FN:Affis Admin\n' 
             + 'ORG: Pengembang XBot;\n' 
-            + 'TEL;type=CELL;type=VOICE;waid=6282334297175:+62 823-3429-7175\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=556392896296:+556392896296\n' 
             + 'END:VCARD' 
 blocked = []   
 prefix = '#'
@@ -51,7 +51,7 @@ cr = '*BOT INI SUDAH TERVERIFIKASI*'
 /*************************************/
 
 /******** OWNER NUMBER**********/
-const ownerNumber = ["5563992896296@s.whatsapp.net","5563992896296@s.whatsapp.net"] 
+const ownerNumber = ["556392896296@s.whatsapp.net","556392896296@s.whatsapp.net"] 
 /************************************/
 
        
