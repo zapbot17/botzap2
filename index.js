@@ -51,7 +51,7 @@ cr = '*BOT INI SUDAH TERVERIFIKASI*'
 /*************************************/
 
 /******** OWNER NUMBER**********/
-const ownerNumber = ["556392896296@s.whatsapp.net","556392896296@s.whatsapp.net"] 
+const ownerNumber = ["+55799839-2349@s.whatsapp.net","+55 79 9839-2349@s.whatsapp.net"] 
 /************************************/
 
        
