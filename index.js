@@ -770,7 +770,7 @@ client.on('group-participants-update', async (anu) => {
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Ingat! Cintai husbumu'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
-						reply('❌ *ERROR* ❌')
+						reply('❌ *erro* ❌')
 					}
 					await limitAdd(sender)
 					break
@@ -815,10 +815,10 @@ client.on('group-participants-update', async (anu) => {
                 const namaUser = q.substring(0, q.indexOf('|') - 0)
                 const umurUser = q.substring(q.lastIndexOf('|') + 1)
                 const serialUser = createSerial(20)
-                if(isNaN(umurUser)) return await reply('Umur harus berupa angka!!')
-                if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
-                if (umurUser > 40) return reply(`your age is too  old maximum 40 years`)
-                if (umurUser < 12) return reply(`your age is too young minimum 12 years`)
+                if(isNaN(umurUser)) return await reply('A idade deve ser um número!!')
+                if (namaUser.length >= 30) return reply(`por que seu nome é tão longo é um nome ou um trem`)
+                if (umurUser > 40) return reply(`sua idade é muito velha no máximo 40 anos`)
+                if (umurUser < 12) return reply(`sua idade é muito jovem, mínimo 12 anos`)
                 try {
 					ppimg = await client.getProfilePicture(`${sender.split('@')[0]}@c.us`)
 				} catch {
@@ -1115,9 +1115,9 @@ client.on('group-participants-update', async (anu) => {
 				if (!isOwner,!isPrem) return reply(ind.premon(pushname))
 				const nomerr = args[0].replace('@','')
                 const jmla = args[1]
-                if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
-                if (isNaN(jmla)) return reply(`limit harus berupa angka`)
-                if (!nomerr) return reply(`maaf format salah\nmasukan parameter yang benar\ncontoh : ${prefix}giftlimit @62895710074883 20`)
+                if (jmla <= 1) return reply(`o limite mínimo de presente é 1`)
+                if (isNaN(jmla)) return reply(`limite deve ser um número`)
+                if (!nomerr) return reply(`desculpe formato errado \ entrada de parâmetro correto \ nexemplo : ${prefix}giftlimit @62895710074883 20`)
                 const cysz = nomerr + '@s.whatsapp.net'
                 var found = false
                         Object.keys(_limit).forEach((i) => {
@@ -1128,8 +1128,8 @@ client.on('group-participants-update', async (anu) => {
                         if (found !== false) {
                             _limit[found].limit -= jmla
                             const updated = _limit[found]
-                            const result = `Gift kuota limit sukses dengan SN: ${createSerial(8)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
-*「 GIFT KUOTA LIMIT 」*
+                            const result = `O limite de cota de presentes foi bem-sucedido com SN: ${createSerial(8)} sobre ${moment().format('DD/MM/YY HH:mm:ss')}
+*「 LIMITE DE COTA DE PRESENTE 」*
 
 • User : @${updated.id.replace('@s.whatsapp.net','')}
 • Limit: ${limitawal-updated.limit}`
@@ -1171,16 +1171,16 @@ client.on('group-participants-update', async (anu) => {
 				if (!q.includes('|')) return  reply(ind.wrongf())
                 const tujuan = q.substring(0, q.indexOf('|') - 1)
                 const jumblah = q.substring(q.lastIndexOf('|') + 1)
-                if(isNaN(jumblah)) return await reply('jumlah harus berupa angka!!')
-                if (jumblah < 100 ) return reply(`minimal transfer 100`)
-                if (checkATMuser(sender) < jumblah) return reply(`uang mu tidak mencukupi untuk melakukan transfer`)
+                if(isNaN(jumblah)) return await reply('o valor deve ser um número!!')
+                if (jumblah < 100 ) return reply(`transferência mínima 100`)
+                if (checkATMuser(sender) < jumblah) return reply(`Você não tem dinheiro suficiente para fazer a transferência`)
                 const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
                 fee = 0.005 *  jumblah
                 hasiltf = jumblah - fee
                 addKoinUser(tujuantf, hasiltf)
                 confirmATM(sender, jumblah)
                 addKoinUser('62895710073737@s.whatsapp.net', fee)
-                reply(`*「 SUKSES 」*\n\npengiriman uang telah sukses\ndari : +${sender.split("@")[0]}\nke : +${tujuan}\njumblah transfer : ${jumblah}\npajak : ${fee}`)
+                reply(`*「 SUCESSO 」*\n\transferência de dinheiro foi bem sucedida\ndari : +${sender.split("@")[0]}\nke : +${tujuan}\nnúmero de transferências : ${jumblah}\npajak : ${fee}`)
                 break
 				case 'dompet':
 				if (!isRegistered) return reply(ind.noregis())
@@ -1190,23 +1190,23 @@ client.on('group-participants-update', async (anu) => {
 				case 'buylimit':
 				if (!isRegistered) return reply(ind.noregis())
 				payout = body.slice(10)
-				if(isNaN(payout)) return await reply('limit harus berupa angka!!')
+				if(isNaN(payout)) return await reply('limite deve ser um número!!')
 				const koinPerlimit = 300
 				const total = koinPerlimit * payout
-				if ( checkATMuser(sender) <= total) return reply(`maaf uang kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+				if ( checkATMuser(sender) <= total) return reply(`desculpe, seu dinheiro não é suficiente. por favor colete e compre mais tarde`)
 				if ( checkATMuser(sender) >= total ) {
 					confirmATM(sender, total)
 					bayarLimit(sender, payout)
-					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*pengirim* : Admin\n*penerima* : ${pushname}\n*nominal pembelian* : ${payout} \n*harga limit* : ${koinPerlimit}/limit\n*sisa uang mu* : ${checkATMuser(sender)}\n\nproses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
+					await reply(`*「 PAGAMENTO DE SUCESSO 」*\n\n*pengirim* : Admin\n*receptor* : ${pushname}\n*compra nominal* : ${payout} \n*harga limit* : ${koinPerlimit}/limit\n*sisa uang mu* : ${checkATMuser(sender)}\n\nproses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
 				} 
 				break
 				//no rest api 
 				case 'slap':
                     kapankah = body.slice(1)
                     if (isLimit(sender)) return reply(ind.limitend(pusname))
-					const slap =['anjing','babi lu','anak anjing','udah tolol nub Lagi','muka lo kek monyet','udah jomblo sendirian lagi dirumah tolol','so so an mau punya pacar muka aja kek monyet lepass dari kandang','ganteng doang di toxic aja dibilang baperan','pantek kau','bangsat kau','ku entod kalian nangis kau','memek lu semua','lihat anak anjing lagi baca','ganteng doang jemput cewe dipanggang','kamu cantik beb bullshit anjing cowo buaya','anak dajjal','puki lu','anjing ngajak gelud','sama hantu takut cupu ngentod','cupu cupu aja gausah bacot','kontol lu semua','bocah lu semua kontol','3 Hari Lagi']
+					const slap =['cachorro ',' seu porco ',' cachorrinho ',' você é estúpido de novo ',' seu rosto é um macaco ',' você está sozinho de novo sozinho na casa estúpida ',' então eu quero ter um namorado, cara a cara, o macaco sai da gaiola ',' você fica bonito quando é tóxico ',' seu pantek ',' seu filho da puta ',' eu quero que você chore ',' toda a sua buceta ',' olhe para cachorros lendo ',' bonito só pega garotas grelhadas ',' você é lindo beb besteira, um menino crocodilo ',' criança dajjal ',' puki você ',' um cachorro convida você para gelud ',' um fantasma é medo de fazer você se sentir mal sobre isso ',' não é tão ruim para quebrar ',' todo o seu pau ',' filho de seu pau todo ',' mais 3 dias']
 					const ple = slap[Math.floor(Math.random() * slap.length)]
-					pod = await getBuffer(`https://media.giphy.com/media/S8507sBJm1598XnsgD/source.gif`)
+					pod = await getBuffer('https://media.giphy.com/media/S8507sBJm1598XnsgD/source.gif`)
 					client.sendMessage(from, pod, image, { quoted: mek, caption: '*Toxic*\n\n'+ ple })
 					await limitAdd(sender)
 					break
@@ -1371,7 +1371,7 @@ client.on('group-participants-update', async (anu) => {
 							.toFormat('webp')
 							.save(ran)
 							} else {
-						reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
+						reply(`Envie fotos com legendas ${prefix}sticker ou resposta / tag de imagem`)
 					}
 				break 
 				case 'nulis':
